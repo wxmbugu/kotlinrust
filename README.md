@@ -14,7 +14,7 @@ Ensure you have the following installed:
 
 #### Setup
 ``` 
-git clone https://github.com/Wambug/learn_kotlin
+git clone https://github.com/Wambug/kotlinrust.git
 ```
 #### Run
 ```
