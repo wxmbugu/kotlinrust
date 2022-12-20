@@ -14,21 +14,19 @@ class Rsa(primep: Int, primeq: Int) {
     fun publickey(x: Int): Pair<Int, Int> {
         if (x < 2) {
             throw Exception("invalid number calculate_e $x")
-        } else {
-            // we are going to check if a no. is prime according to range given
-            // we append the prime values to an array
-            // check the gcd of the prime values
-            // we also append the prime values with a gcd of one to an array
-            // pick the lowest value with gcd of one from the array to reduce working with large values
-            // we've gotten e
-            for (i in 2..x) {
-                var primeno_array = checkPrime(i)
-                for (no in primeno_array) {
-                    if (no >= 2) {
-                        var (isgcd, value) = gcd(no, n)
-                        if (isgcd) {
-                            return Pair(value, pq)
-                        }
+        }
+        // we are going to check if a no. is prime according to range given
+        // we append the prime values to an array
+        // check the gcd of the prime values
+        // pick the value with gcd of one
+        // we've gotten e
+        for (i in 2..x) {
+            var primeno_array = checkPrime(i)
+            for (no in primeno_array) {
+                if (no >= 2) {
+                    var (isgcd, value) = gcd(no, n)
+                    if (isgcd) {
+                        return Pair(value, pq)
                     }
                 }
             }
@@ -61,15 +59,7 @@ fun gcd(smallvalue: Int, largevalue: Int): Pair<Boolean, Int> {
     if (largevalue % smallvalue != 0) {
         return Pair(true, smallvalue)
     }
-
     return Pair(false, smallvalue)
-}
-
-// NOTE:Decpracate this not in use
-// getting the lowest value of the IntArray
-fun lowestvalue(args: IntArray): Int {
-    val mutableArray = args.toMutableList()
-    return mutableArray.min()
 }
 
 // checking which values are primeno and appending them to an array
@@ -99,14 +89,12 @@ fun addElement(arr: IntArray, element: Int): IntArray {
 
 fun main() {
     System.loadLibrary("modulus")
-    var rsa = Rsa(137, 181)
+    var rsa = Rsa(11, 181)
     var (public_key, public_value) = rsa.publickey(20)
-    // println(rsa.publickey(29))
     var (private_key, private_value) = rsa.privatekey(public_key)
-// number 5 will represent our message letter B
-    var encryptmessage = encrypt(5, public_key, public_value)
+    // number 360 will represent our message letter B
+    var encryptmessage = encrypt(369, public_key, public_value)
     println("encrypted message is $encryptmessage")
     var decryptmessage = encrypt(encryptmessage, private_key, private_value)
     println("decrypted message is $decryptmessage")
-    // println(rsa.privatekey(public_key))
 }
