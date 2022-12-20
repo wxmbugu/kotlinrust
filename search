@@ -1,0 +1,274 @@
+ZATHURA(1)                                                                                                            zathura                                                                                                            ZATHURA(1)
+
+NNAAMMEE
+       zathura - a document viewer
+
+SSYYNNOOPPSSIISS
+       zathura [-e XID] [-c PATH] [-d PATH] [-p PATH] [-w PASSWORD] [-P NUMBER] [--fork] [-l LEVEL] [-s] [-x CMD] [--synctex-forward INPUT] [--synctex-pid PID] [-find STRING] <files>
+
+DDEESSCCRRIIPPTTIIOONN
+       zzaatthhuurraa displays the given files. If a single hyphen-minus (-) is given as file name, the content will be read from the standard input. If no files are given, an empty zzaatthhuurraa instance launches.
+
+OOPPTTIIOONNSS
+       --ee,_-_-_r_e_p_a_r_e_n_t==xxiidd
+              Reparents to window specified by xid
+
+       --cc,_-_-_c_o_n_f_i_g_-_d_i_r==ppaatthh
+              Path to the config directory
+
+       --dd,_-_-_d_a_t_a_-_d_i_r==ppaatthh
+              Path to the data directory
+
+       --pp,_-_-_p_l_u_g_i_n_s_-_d_i_r==ppaatthh
+              Path to the directory containing plugins
+
+       --ww,_-_-_p_a_s_s_w_o_r_d==ppaasssswwoorrdd
+              The documents password. If multiple documents are opened at once, the password will be used for the first one and zathura will ask for the passwords of the remaining files if needed.
+
+       --PP,_-_-_p_a_g_e==nnuummbbeerr
+              Opens the document at the given page number. Pages are numbered starting with 1, and negative numbers indicate page numbers starting from the end of the document, -1 being the last page.
+
+       --ff,_-_-_f_i_n_d==ssttrriinngg
+              Opens the document and searches for the given string.
+
+       --ll,_-_-_l_o_g_-_l_e_v_e_l==lleevveell
+              Set log level (debug, info, warning, error)
+
+       --xx,_-_-_s_y_n_c_t_e_x_-_e_d_i_t_o_r_-_c_o_m_m_a_n_d==ccoommmmaanndd
+              Set the synctex editor command. Overrides the synctex-editor-command setting.
+
+       ----ssyynncctteexx--ffoorrwwaarrdd==_i_n_p_u_t
+              Jump to the given position. The switch expects the same format as specified for synctex's view -i. If no instance is running for the specified document, a new instance will be launched (only if --synctex-pid is not specified).
+
+       ----ssyynncctteexx--ppiidd==_p_i_d
+              Instead of looking for an instance having the correct file opened, try only the instance with the given PID. Note that if the given PID does not have the correct file open or does not exist, no new instance will be spanned.
+
+       ----mmooddee==_m_o_d_e
+              Start in a non-default mode
+
+       ----ffoorrkk Fork into background
+
+       ----vveerrssiioonn
+              Display version string and exit
+
+       ----hheellpp Display help and exit
+
+MMOOUUSSEE AANNDD KKEEYY BBIINNDDIINNGGSS
+       General
+
+          JJ,, PPggDDnn
+                 Go to the next page
+
+          KK,, PPggUUpp
+                 Go to the previous page
+
+          hh,, kk,, jj,, ll
+                 Scroll to the left, down, up or right direction
+
+          LLeefftt,, DDoowwnn,, UUpp,, RRiigghhtt
+                 Scroll to the left, down, up or right direction
+
+          ^^tt,, ^^dd,, ^^uu,, ^^yy
+                 Scroll a half page left, down, up or right
+
+          tt,, ^^ff,, ^^bb,, ssppaaccee,, <<SS--ssppaaccee>>,, yy
+                 Scroll a full page left, down, up or right
+
+          gggg,, GG,, nnGG
+                 Goto to the first, the last or to the nth page
+
+          PP      Snaps to the current page
+
+          HH,, LL   Goto top or bottom of the current page
+
+          ^^oo,, ^^ii Move backward and forward through the jump list
+
+          ^^jj,, ^^kk Bisect forward and backward between the last two jump points
+
+          ^^cc,, EEssccaappee
+                 Abort
+
+          aa,, ss   Adjust window in best-fit or width mode
+
+          //,, ??   Search for text
+
+          nn,, NN   Search for the next or previous result
+
+          oo,, OO   Open document
+
+          ff      Follow links
+
+          FF      Display link target
+
+          cc      Copy link target into the clipboard
+
+          ::      Enter command
+
+          rr      Rotate by 90 degrees
+
+          ^^rr     Recolor (grayscale and invert colors)
+
+          RR      Reload document
+
+          TTaabb    Show index and switch to IInnddeexx mmooddee
+
+          dd      Toggle dual page view
+
+          FF55     Switch to presentation mode
+
+          FF1111    Switch to fullscreen mode
+
+          ^^mm     Toggle inputbar
+
+          ^^nn     Toggle statusbar
+
+          ++,, --,, ==
+                 Zoom in, out or to the original size
+
+          zzII,, zzOO,, zz00
+                 Zoom in, out or to the original size
+
+          nn==     Zoom to size n
+
+          mmXX     Set a quickmark to a letter or number X
+
+          ''XX     Goto quickmark saved at letter or number X
+
+          qq      Quit
+
+       Fullscreen mode
+
+          JJ,, KK   Go to the next or previous page
+
+          ssppaaccee,, <<SS--ssppaaccee>>,, <<BBaacckkSSppaaccee>>
+                 Scroll a full page down or up
+
+          gggg,, GG,, nnGG
+                 Goto to the first, the last or to the nth page
+
+          ^^cc,, EEssccaappee
+                 Abort
+
+          FF1111    Switch to normal mode
+
+          ++,, --,, ==
+                 Zoom in, out or to the original size
+
+          zzII,, zzOO,, zz00
+                 Zoom in, out or to the original size
+
+          nn==     Zoom to size n
+
+          qq      Quit
+
+       Presentation mode
+
+          ssppaaccee,, <<SS--ssppaaccee>>,, <<BBaacckkSSppaaccee>>
+                 Scroll a full page down or up
+
+          ^^cc,, EEssccaappee
+                 Abort
+
+          FF55     Switch to normal mode
+
+          qq      Quit
+
+       Index mode
+
+          kk,, jj   Move to upper or lower entry
+
+          ll      Expand entry
+
+          LL      Expand all entries
+
+          hh      Collapse entry
+
+          HH      Collapse all entries
+
+          ssppaaccee,, RReettuurrnn
+                 Select and open entry
+
+       Mouse bindings
+
+          SSccrroollll Scroll up or down
+
+          ^^SSccrroollll
+                 Zoom in or out
+
+          HHoolldd BBuuttttoonn22
+                 Pan the document
+
+          BBuuttttoonn11
+                 Follow link
+
+CCOOMMMMAANNDDSS
+       bbmmaarrkk  Save a bookmark
+
+       bbddeelleettee
+              Delete a bookmark
+
+       bblliisstt  List bookmarks
+
+       cclloossee  Close document
+
+       eexxeecc   Execute an external command. $$FFIILLEE expands to the current document path, and $$PPAAGGEE to the current page number
+
+       iinnffoo   Show document information
+
+       ooppeenn   Open a document
+
+       ooffffsseett Set page offset
+
+       pprriinntt  Print document
+
+       wwrriittee((!!))
+              Save document (and force overwriting)
+
+       eexxppoorrtt Export attachments
+
+       dduummpp   Write values, descriptions, etc. of all current settings to a file.
+
+CCOONNFFIIGGUURRAATTIIOONN
+       The default appearance and behaviour of zathura can be overwritten by modifying the _z_a_t_h_u_r_a_r_c file (default path: ~/.config/zathura/zathurarc). For a detailed description please consult zathurarc(5).
+
+SSYYNNCCTTEEXX SSUUPPPPOORRTT
+       Both synctex forward and backwards synchronization are supported by zathura, To enable synctex forward synchronization, please look at the _-_-_s_y_n_c_t_e_x_-_f_o_r_w_a_r_d and _-_-_s_y_n_c_t_e_x_-_e_d_i_t_o_r options. zathura will also emit a signal via the D-Bus in‐
+       terface. To support synctex backwards synchronization, zathura provides a D-Bus interface that can be called by the editor. For convince zathura also knows how to parse the output of the _s_y_n_c_t_e_x _v_i_e_w command. It is enough  to  pass  the
+       arguments to _s_y_n_c_t_e_x _v_i_e_w's _-_i option to zathura via _-_-_s_y_n_c_t_e_x_-_f_o_r_w_a_r_d and zathura will pass the information to the correct instance.
+
+       For gvim forward and backwards synchronization support can be set up as follows: First add the following to the vim configuration:
+
+          function! Synctex()
+            execute "silent !zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+            redraw!
+          endfunction
+          map <C-enter> :call Synctex()<cr>
+
+       Then launch _z_a_t_h_u_r_a with
+
+          zathura -x "gvim --servername vim -c \"let g:syncpdf='$1'\" --remote +%{line} %{input}" $file
+
+       Some editors support zathura as viewer out of the box:
+
+       • LaTeXTools for SublimeText (_h_t_t_p_s_:_/_/_l_a_t_e_x_t_o_o_l_s_._r_e_a_d_t_h_e_d_o_c_s_._i_o_/_e_n_/_l_a_t_e_s_t_/_a_v_a_i_l_a_b_l_e_-_v_i_e_w_e_r_s_/_#_z_a_t_h_u_r_a)
+
+       • LaTeX for Atom (_h_t_t_p_s_:_/_/_a_t_o_m_._i_o_/_p_a_c_k_a_g_e_s_/_l_a_t_e_x)
+
+EENNVVIIRROONNMMEENNTT VVAARRIIAABBLLEESS
+       ZZAATTHHUURRAA__PPLLUUGGIINNSS__PPAATTHH
+              Path to the directory containing plugins. This directory is only considered if no other directory was specified using --plugins-dir.
+
+KKNNOOWWNN BBUUGGSS
+       If  GDK_NATIVE_WINDOWS  is  enabled  you  will experience problems with large documents. In this case zathura might crash or pages cannot be rendered properly. Disabling GDK_NATIVE_WINDOWS fixes this issue. The same issue may appear, if
+       overlay-scrollbar is enabled in GTK_MODULES.
+
+SSEEEE AALLSSOO
+       _z_a_t_h_u_r_a_r_c_(_5_)
+
+AAUUTTHHOORR
+       pwmt.org
+
+CCOOPPYYRRIIGGHHTT
+       2009-2022, pwmt.org
+
+0.5.1                                                                                                                2022-10-03                                                                                                          ZATHURA(1)

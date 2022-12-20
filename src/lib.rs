@@ -26,9 +26,9 @@ pub extern "system" fn Java_RustLib_encrypt(
     power: jint,
     modno: jint,
 ) -> jint {
-    let message = message as i32;
+    let message = message;
     let power = power as u32;
-    let modno = modno as i32;
+    let modno = modno;
     rsa_alg(message, power, modno) as jint
 }
 

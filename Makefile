@@ -11,7 +11,7 @@ jar_path := $(scripts)
 .PHONY: run
 
 run:
-	cargo build --quiet --release 
+	cargo build --$(config)
 	kotlinc $(scripts) -include-runtime -d $(jar_name)
 	java -Djava.library.path=target/$(config)/ -jar $(jar_name)
 
