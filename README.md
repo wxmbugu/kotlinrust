@@ -2,8 +2,7 @@
   - An attempt to implement methods in Kotlin via rust.  
 ###  RSA algorithm
   - Learning kotlin && Interop through implementing on how to calculate the rsa encryption algorithm.
-  - To learn about the rsa algorithm check this video:
-  - [![Rsa algorithm](https://i.ytimg.com/an_webp/4zahvcJ9glg/mqdefault_6s.webp?du=3000&sqp=CICD3poG&rs=AOn4CLDsi3iFhouqiODW8ZQAQrxQJ6JV6A)](https://youtu.be/4zahvcJ9glg)
+  - To learn about the rsa algorithm check this video: ![Rsa algorithm](https://youtu.be/4zahvcJ9glg)
 
 
 ### Prerequisite
